@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+long long solve (int N, int start, int finish, vector<int> Ticket_cost) {
+   // Write your code here
+   int A_cost=0,B_cost=0;int i;
+   for(i=start;i>finish;i++)
+   {
+      A_cost=A_cost+Ticket_cost[i];
+   }
+   for(i=finish;i=start;i++)
+   {
+      B_cost=B_cost+Ticket_cost[i];
+   }
+   return min(A_cost,B_cost);
+   
+}
+
+int main() {
+
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    int N;
+    cin >> N;
+    int start;
+    cin >> start;
+    int finish;
+    cin >> finish;
+    vector<int> Ticket_cost(N);
+    for(int i_Ticket_cost = 0; i_Ticket_cost < N; i_Ticket_cost++)
+    {
+    	cin >> Ticket_cost[i_Ticket_cost];
+    }
+
+    long long out_;
+    out_ = solve(N, start, finish, Ticket_cost);
+    cout << out_;
+}
